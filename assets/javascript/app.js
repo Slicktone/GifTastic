@@ -7,17 +7,32 @@ var animalList = ["dog", "cat", "bird", "skunk", "rat", "chinchilla"];
 
 function displayGif() {
 // $("button").on("click", function() {
-	var animal = $(this).attr("data-url");
+	var animal = $(this).attr("data-name");
 
 	var queryURL = "http://api.giphy.com/v1/gifs/search?q=" + animal + "&api_key=dc6zaTOxFJmzC";
 	
-	$.ajax({url: queryURL, method: 'GET'})
-		.done(function(response){
+	
+	$.ajax({url: queryURL, method: 'GET'}).done(function(response){
 			console.log(response);
 			console.log(queryURL);
-			
-			
+
+			for (var j = 0; j < animalList.length; j++) {
+
+				var rating = $("<p>");
+					
+				var gifSection = $("<div>");
+				gifSection.addClass();
+
+				var img = $("<img>");
+				img.attr("src", response.data[j].images.downsized.url);
+
+				gifSection.append(img);
+				$("#animals").prepend(gifSection);
+
+
+			}
 		})
+	
 // });
 }
 
@@ -47,5 +62,5 @@ function createButtons() {
 	})
 // }
 
-$(document).on("click", "newAnimal", displayGif);
+$(document).on("click", ".newAnimal", displayGif);
 createButtons();
