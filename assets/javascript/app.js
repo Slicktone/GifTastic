@@ -11,7 +11,7 @@ function displayGif() {
 
 	var animal = $(this).attr("data-name");
 	var limit = 10;
-	var queryURL = "http://api.giphy.com/v1/gifs/search?q=" + animal + "&limit=" + limit + "&api_key=dc6zaTOxFJmzC";
+	var queryURL = "https://api.giphy.com/v1/gifs/search?q=" + animal + "&limit=" + limit + "&api_key=dc6zaTOxFJmzC";
 	
 	// var queryURL = "http://api.giphy.com/v1/gifs/search?q=" + animal + "&api_key=dc6zaTOxFJmzC";
 	
