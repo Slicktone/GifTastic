@@ -21,8 +21,9 @@ function displayGif() {
 			console.log(response);
 
 			for (var j = 0; j < animalList.length; j++) {
-					
+				
 				var gifSection = $("<div>");
+
 				gifSection.addClass();
 
 				var img = $("<img>");
@@ -31,15 +32,14 @@ function displayGif() {
 				img.attr("data-animate", response.data[j].images.downsized.url);
 				img.attr("data-state", "still");
 				img.attr("class", "gif");
-				gifSection.append(img);
 
+				gifSection.append(img);
+					
 				var rating = response.data[j].rating;
 				var displayRating = $("<h3>").text("Rating: " + rating);
 				gifSection.append(displayRating);
 
 				$("#animals").prepend(gifSection);
-
-
 			}
 		})
 }
